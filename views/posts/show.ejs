@@ -1,0 +1,47 @@
+<% include ../partials/header %>
+<style>
+  body{
+    padding-top: 5%
+  }
+  .container .jumbotron, .container-fluid .jumbotron{
+    background: rgba(203, 214, 212, 0.1)
+    padding-top:1%;
+    padding-bottom:2%;
+  }
+  .btn-danger{
+    background: red
+  }
+  p .h2{
+    display: inline-block;
+  }
+
+  button{
+    float: right;
+  }
+
+  .btn{
+    margin-bottom: 1%
+  }
+
+  .jumbotron{
+    margin-bottom: 1%
+  }
+</style>
+<div class="jumbotron">
+  <h1 style="margin-bottom: 2%" class="text-center">Post by <kbd><%=post.uname%></kbd></h1>
+  <img src="<%=post.img%>" class="img-rounded img-thumbnail" alt="PostImage" style="width: 100%;">
+  <p class="h2" style="margin-bottom:0"><a href="#" style="color:blue;"><%=post.uname%> :</a><%=post.caption%></p>
+
+  <h5 style="margin-bottom:0"><i>Uploaded on <%=Date()%></i></h5>
+  <a href="/posts/<%=post._id%>/comments/new" style="color:#fff430"><span class="glyphicon glyphicon-comment" style="margin-right: 1% margin-bottom:0"></span><h4 style="display: inline-block;">Add a Comment </h4></a>
+  <% for (var i = 0; i < post.comments.length; i++) {%>
+      <p class="h4" style="margin-bottom:5px; margin-top:0; color: #c816f9"><a href="#" style="color:brown;"><%=post.comments[i].uname%>: </a><%=post.comments[i].text%></p>
+      <form action="/posts/<%=post._id%>/comments/<%=post.comments[i]._id%>?_method=DELETE" method="POST"  style="display: inline-block;">
+        <button type="submit" class="btn btn-danger btn-xs">Delete Comment</button>
+      </form>
+  <%}%>
+</div>
+<form action="/posts/<%=post._id%>?_method=DELETE" method="POST">
+  <button type="submit" class="btn btn-danger btn-lg">Delete this Post</button>
+</form>
+<% include ../partials/footer %>

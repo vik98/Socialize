@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+<style media="screen">
+  body{
+    padding-top: 7%
+  }
+</style>
+<div class="jumbotron text-center">
+  <h1 class="text-center" style="color:black;">Edit a post</h1>
+  <p class="lead text-center" style="color:black;">Fill in the required fields to edit the post. </p>
+</div>
+
+<div class="jumbotron" style="background: rgba(2, 2, 2, 0.35); color: white">
+<form action="/posts/<%=post._id%>?_method=PUT" method="POST">
+  <div class="form-group">
+    <h4><label for="posts[uname]">Username:</label></h4>
+    <input type="text" class="form-control" name="posts[uname]" value="<%=post.uname%>" />
+  </div>
+  <div class="form-group">
+    <h4><label for="posts[img]">Image URL:</label></h4>
+    <input type="text" name="posts[img]" class="form-control" value="<%=post.img%>">
+  </div>
+  <div class="form-group">
+    <h4><label for="posts[img]">Caption:</label></h4>
+    <input type="text" name="posts[caption]" class="form-control" value="<%=post.caption%>">
+  </div>
+  <button type="submit" class="btb btn-danger btn-lg">Edit the Post</button>
+</form>
+</div>
+<% include ../partials/footer %>

@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+
+<style media="screen">
+  body{
+    padding-top: 7%
+  }
+
+  .jumbotron{
+    margin-bottom: 1%
+  }
+</style>
+  <div class="jumbotron text-center">
+    <h1 class="text-center" style="color:black;margin-top:0">Welcome to <%=user.uname%>'s Profile</h1>
+    <img src="<%=user.img%>" class="img-circle" style="width: 20%">
+    <h2 style="margin-bottom: 0; margin-top:0"><%=user.name%></h2>
+    <h3 style=" margin-top:0">@<%=user.uname%></h3>
+<div class="panel text-center">
+    <table class="table text-center" style="float:center; margin-bottom: 0; color: blue">
+      <tr style="text-align: center">
+        <th style="border-top: none; text-align: center">Posts</th>
+        <th style="border-top: none; text-align: center">Followers</th>
+        <th style="border-top: none; text-align: center">Followings</th>
+      </tr>
+      <tr>
+        <th style="border-top: none; text-align: center"><%=user.posts.length%></th>
+        <th style="border-top: none; text-align: center">222</th>
+        <th style="border-top: none; text-align: center">225</th>
+      </tr>
+  </table>
+</div>
+  </div>
+  <div class="container">
+    <b><h2 class="text-center" style="margin-top:0; color:black">Posts by <%=user.uname%></h2></b>
+    <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+      <% for (var i = 0; i < user.posts.length; i++) {%>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+          <a href="/posts/<%=user.posts[i]._id%>"><img src="<%=user.posts[i].img%>" alt="Lights" style="width:100%"></a>
+          <div class="caption" style="padding-bottom: 0">
+            <span class="glyphicon glyphicon-heart-empty"></span>
+            <span class="glyphicon glyphicon-comment"></span>
+            <span style="text-align: right">
+            <form action="/posts/<%=user.posts[i]._id%>/edit" method="GET"  style="display: inline-block;">
+              <button type="submit" class="btn btn-primary btn-xs" style=" margin-bottom: 8px; margin-left: 10px">Edit</button>
+            </form>
+            </span>
+            <p style="margin-bottom: 0"><%=user.posts[i].caption%></p>
+            <p><%=Date()%></p>
+          </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
+
+<% include ../partials/footer %>

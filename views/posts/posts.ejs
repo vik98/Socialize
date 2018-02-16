@@ -1,0 +1,36 @@
+<% include ../partials/header %>
+<style media="screen">
+  body{
+    padding-top: 7%
+  }
+</style>
+  <div class="jumbotron text-center">
+    <h1 class="text-center" style="color:black;">Explore the Posts</h1>
+    <p class="lead text-center" style="color:black;">These are the public posts from various users across the globe. You can explore more by signing in.</p>
+    <form action="/posts/new" method="GET">
+      <input type="submit" class="btb btn-danger btn-lg" value="Add a public post">
+    </form>
+  </div>
+  <div class="container">
+    <div class="row text-center" style="display:flex; flex-wrap:wrap;">
+      <% for (var i = 0; i < arr.length; i++) {%>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+          <a href="/posts/<%=arr[i]._id%>"><img src="<%=arr[i].img%>" alt="Lights" style="width:100%"></a>
+          <div class="caption" style="padding-bottom: 0">
+            <span class="glyphicon glyphicon-heart-empty"></span>
+            <span class="glyphicon glyphicon-comment"></span>
+            <span style="text-align: right">
+            <form action="/posts/<%=arr[i]._id%>/edit" method="GET"  style="display: inline-block;">
+              <button type="submit" class="btn btn-primary btn-xs" style=" margin-bottom: 8px; margin-left: 10px">Edit</button>
+            </form>
+            </span>
+            <p style="margin-bottom:0"><a href="/users"><b><%=arr[i].uname%></b></a></p>
+            <p style="margin-bottom: 0"><%=arr[i].caption%></p>
+            <p><%=arr[i].date.toDateString()%></p>
+          </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+<% include ../partials/footer %>

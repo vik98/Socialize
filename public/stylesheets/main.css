@@ -1,0 +1,53 @@
+#white{
+  color: white;
+}
+
+.glyphicon{
+  margin-right: 2px;
+}
+
+body {
+/*css for full size background image*/
+  background: url(https://w-dog.net/wallpapers/12/2/529663747641021/close-up-bench-shop-bench-bridge-background-wallpaper-widescreen-full-screen-widescreen-hd-wallpapers-background-wallpaper-widescreen-fullscreen-widescreen.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+}
+
+body {
+   padding-top: 14%;
+ }
+
+ .jumbotron{
+   background-color:white;
+   color: black;
+   background: rgba(237, 237, 237, 0.35);
+
+ }
+
+.btn-danger{
+  background-color: black;
+  color: white;
+}
+
+.thumbnail {
+    border: 0 none;
+    box-shadow: none;
+    background: rgba(237, 237, 237, 0.8);
+    color: black;
+}
+
+.glyphicon.glyphicon-heart-empty{
+  font-size: 20px
+}
+
+.glyphicon.glyphicon-comment{
+  font-size: 20px;
+  margin-left: 5px
+}
+
+.img-thumbnail{
+  background:rgba(2, 2, 2, 0.2)
+}

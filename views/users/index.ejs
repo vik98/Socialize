@@ -1,0 +1,30 @@
+<% include ../partials/header %>
+
+<style media="screen">
+  body{
+    padding-top: 5%;
+  }
+</style>
+
+<div class="container">
+  <header class="jumbotron ">
+    <div class="container text-center">
+      <h1> The list of all users is given</h1>
+      <p> Below is the list of all the users on the page</p>
+    </div>
+    <div class="panel panel-primary" style="width:70%; margin: 0 auto">
+      <div class="panel-heading">Active Users</div>
+      <%for (var i = 0; i < user.length; i++) {%>
+      <div class="panel-body text-center">
+        <a href="/users/<%=user[i]._id%>"><img src="<%=user[i].img%>" class="img-circle" style="width: 10%">
+        <p class="lead" style="margin-bottom: 0"><%=user[i].uname%></p></a>
+        <h4 style="margin-top: 5px"><%=user[i].name%></h4>
+        <h5><%=user[i].posts.length%> Posts</h5>
+      </div>
+      <hr style="width: 70%; margin-top: 0">
+      <%}%>
+    </div>
+  </header>
+</div>
+
+<% include ../partials/footer %>
